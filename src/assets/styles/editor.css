@@ -1,0 +1,32 @@
+.editor {
+  left: 0;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 60px;
+  margin: 0;
+}
+
+.output {
+  left: 50%;
+  top: 60px;
+  width: 50%;
+  margin: 0;
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+}
+
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  box-sizing: border-box;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.6em;
+  color: #fff;
+  z-index: 1;
+}

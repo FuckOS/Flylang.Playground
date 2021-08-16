@@ -1,0 +1,31 @@
+{
+  "name": "flyl-playground",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --debug",
+    "build": "vue-tsc --noEmit && vite build --debug",
+    "serve": "vite preview",
+    "build:editor": "rollup -c rollup.editor.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "monaco-editor": "^0.26.1",
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@types/minimist": "^1.2.2",
+    "@vitejs/plugin-vue": "^1.3.0",
+    "@vitejs/plugin-vue-jsx": "^1.1.7",
+    "@vue/compiler-sfc": "^3.0.5",
+    "minimist": "^1.2.5",
+    "rollup": "^2.56.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "terser": "^5.7.1",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.4",
+    "vue-tsc": "^0.2.2"
+  }
+}

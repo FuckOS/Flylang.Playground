@@ -1,0 +1,46 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout Files
+
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+        cache: 'yarn'
+
+    - run: 'yarn build:editor'
+      name: Install Project
+
+    - run: 'yarn build:editor'
+      name: Build Editor Web Worker
+
+    - run: 'yarn build'
+      name: Build Project
+      env:
+        COMMIT_ID: ${{ github.events.commits[0].id }}
+        COMMIT_URL: ${{ github.events.commits[0].url }}
+
+    - name: Commit files
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        mv dist docs
+        git commit -m "Build with commit ${{ github.events.commits[0].id }}@${{ github.events.ref }}" -a
+        git push origin gh-pages
+
