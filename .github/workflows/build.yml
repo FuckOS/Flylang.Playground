@@ -45,18 +45,13 @@ jobs:
 #         git commit -m "Build with commit ${{ github.events.commits[0].id }}@${{ github.events.ref }}" -a
 #         git push origin gh-pages
     - name: Github Pages Custom Deploy
-     # You may pin to the exact commit or the version.
-      # uses: sterlingwes/gh-pages-deploy-action@8b237b6c575f341cd5c28660337a21869e222f62
-      uses: sterlingwes/gh-pages-deploy-action@v1.1
-      with:
-        # A personal access token needed to push your site after it has been built.
-        access-token: ${{ secrets.GITHUB_TOKEN }}
-        # The subdirectory that your build command outputs your site assets to.
-        source-directory: dist # default is 
-        # The build command that should be run to generate your site.
-        build-command: ls # default is 
-        # The branch expected by GitHub to have the static files needed for your site.
-        deploy-branch: gh-pages # optional, default is gh-pages
-        # The custom domain you want your Github Pages site to be served from.
-        custom-domain: play.flyos.top # optional, default is 
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        cd dist
+        git init
+        git checkout gh-pages
+        git add .
+        git commit -m "Build with commit ${{ github.events.commits[0].id }}@${{ github.events.ref }}" -a
+        git push origin gh-pages --force
 
