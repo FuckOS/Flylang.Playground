@@ -34,7 +34,6 @@ jobs:
 
     - run: 'yarn build'
       name: Build Project
-      env:
 
     - name: Commit files
       run: |
