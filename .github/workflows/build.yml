@@ -35,8 +35,6 @@ jobs:
     - run: 'yarn build'
       name: Build Project
       env:
-        COMMIT_ID: ${{ github.events.head_commit.id }}
-        COMMIT_URL: ${{ github.events.head_commit.url }}
 
     - name: Commit files
       run: |
@@ -44,12 +42,12 @@ jobs:
         git config --local user.name "github-actions[bot]"
         mv dist docs
         git add .
-        git commit -m "Build with commit ${{ github.events.head_commit.id }}@${{ github.events.ref }}" -a
+        git commit -m "Build" -a
     - name: Push
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: origin/gh-pages
+        branch: gh-pages
     # - name: Github Pages Custom Deploy
     #   run: |
     #     git config --local user.email "github-actions[bot]@users.noreply.github.com"

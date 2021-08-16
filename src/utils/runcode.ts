@@ -23,7 +23,8 @@ export default async function runCode(code: string): Promise<string>  {
   try {
     let resl = atob(resp.data);
     return resl;
-  } catch {
-    return html2text(resp.data);
+  } catch(e) {
+    console.log(e)
+    return "Error!\n\n" + html2text(resp.data);
   }
 }

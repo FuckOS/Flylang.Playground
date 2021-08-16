@@ -1,6 +1,7 @@
 import { ref, Ref, defineComponent, onMounted } from "vue";
 
 import * as monaco from 'monaco-editor';
+import _ from 'lodash';
 import syntax from '../assets/syntax';
 import run from '../utils/runcode';
 
@@ -45,10 +46,17 @@ export default  defineComponent({
     useFlySyntax();
     useEditor(editorNode, outputEditorNode).then(
       async([editor, output]) => {
+        output.addAction({
+          id: "fly.show_help",
+          label: "Playground: 显示帮助",
+          async run() {
+            output.setValue((await import("../assets/examples/welcome")).default)
+          }
+        });
         editor.setValue((await import("../assets/examples/helloworld")).default)
         output.setValue((await import("../assets/examples/welcome")).default)
-        editor.onKeyUp(async() => {
-          output.setValue("Running...");
+        editor.onKeyUp(_.debounce(async() => {
+          output.setValue("Running... Wait a moment.");
           try {
             const code_out = await run(editor.getValue());
             output.setValue(code_out);
@@ -56,7 +64,7 @@ export default  defineComponent({
             console.log(e);
             output.setValue("Playground Error!\n\n"+e.toString());
           }
-        })
+        }, 800));
       }
     )
     
