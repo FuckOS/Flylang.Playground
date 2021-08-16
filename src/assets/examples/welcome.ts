@@ -1,20 +1,23 @@
 export default `
-欢迎来到 Flylang Playground!
+Welcome to Flylang Playground!
 
-在左侧的编辑器输入你的代码，这里会实时运行哦！
+Input in the editor on the left, and results will be shown here in real time！
 
-Flylang 是一种面向错误的程序设计语言，并有以下特征：
+Flylang is an error-oriented language, with the following features：
 
-  - 无跨平台支持
-  - 解释型语言
-  - 性能极低
-  - 代码量极大
-  - 完全自动类型推断
-  - 面向错误
+  - With no cross-platform support
+  - Able to run on shared hostings that support PHP 8.0 (This playground server is hosted on a free shared hosting)
+  - Interpreted language
+  - Extremely low performance
+  - Huge code amount
+  - Auto type-detection
+  - Error oriented
 
-如果你觉得不错的话，可以到我们的项目仓库并给个 star 吗？
+Give us a star to show your support!
 
-Fly50w (Flylang PHP 实现): https://github.com/FuckOS/fly50w
-Flylang 通用标准: https://github.com/FuckOS/FlyLang-Universal-Standard
+To show this message again, right-click on this editor, choose Command Palette and search for 'Playground: Display Help'.
+
+Fly50w (Flylang PHP implemention): https://github.com/FuckOS/fly50w
+Flylang Universal Standard: https://github.com/FuckOS/FlyLang-Universal-Standard
 Flylang Playground API: https://play-f5w-01.flyos.top/api/play/
 `
