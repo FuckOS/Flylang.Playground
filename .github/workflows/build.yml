@@ -36,12 +36,16 @@ jobs:
         COMMIT_ID: ${{ github.events.commits[0].id }}
         COMMIT_URL: ${{ github.events.commits[0].url }}
 
-    - name: Commit files
-      run: |
+    - name: Setup Git
+      run : |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+    - name: Commit files
+      run: |
         mv dist docs
         git add .
-        git commit -m "Build with commit ${{ github.events.commits[0].id }}@${{ github.events.ref }}" -a
+        git commit -m "Build" -a
+    - name: Push
+      run: |
         git push origin gh-pages
 
