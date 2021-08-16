@@ -45,7 +45,11 @@ jobs:
         mv dist docs
         git add .
         git commit -m "Build with commit ${{ github.events.head_commit.id }}@${{ github.events.ref }}" -a
-        git push origin gh-pages
+    - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
     # - name: Github Pages Custom Deploy
     #   run: |
     #     git config --local user.email "github-actions[bot]@users.noreply.github.com"
