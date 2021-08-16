@@ -3,6 +3,8 @@
 
 name: Build
 
+permissions: write-all
+
 on:
   push:
     branches: [ main ]
@@ -33,8 +35,8 @@ jobs:
     - run: 'yarn build'
       name: Build Project
       env:
-        COMMIT_ID: ${{ github.events.commits[0].id }}
-        COMMIT_URL: ${{ github.events.commits[0].url }}
+        COMMIT_ID: ${{ github.events.head_commit.id }}
+        COMMIT_URL: ${{ github.events.head_commit.url }}
 
 #     - name: Commit files
 #       run: |
@@ -53,6 +55,6 @@ jobs:
         git branch -m gh-pages
         git checkout gh-pages
         git add .
-        git commit -m "Build with commit ${{ github.events.commits[0].id }}@${{ github.events.ref }}" -a
+        git commit -m "Build with commit ${{ github.events.head_commit.id }}@${{ github.events.ref }}" -a
         git push origin gh-pages --force
 
