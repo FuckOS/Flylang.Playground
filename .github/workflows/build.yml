@@ -24,7 +24,7 @@ jobs:
         node-version: 16.x
         cache: 'yarn'
 
-    - run: 'yarn build:editor'
+    - run: 'yarn'
       name: Install Project
 
     - run: 'yarn build:editor'
