@@ -41,12 +41,13 @@ jobs:
         git config --local user.name "github-actions[bot]"
         mv dist docs
         git add .
-        git commit -m "Build" -a
+        git commit -m "Build" -a 
     - name: Push
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: origin/gh-pages
+        branch: gh-pages
+        force: true
     # - name: Github Pages Custom Deploy
     #   run: |
     #     git config --local user.email "github-actions[bot]@users.noreply.github.com"
