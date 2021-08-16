@@ -50,6 +50,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         cd dist
         git init
+        git branch -m gh-pages
         git checkout gh-pages
         git add .
         git commit -m "Build with commit ${{ github.events.commits[0].id }}@${{ github.events.ref }}" -a
