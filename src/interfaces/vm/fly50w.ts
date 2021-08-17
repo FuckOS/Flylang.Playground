@@ -3,7 +3,7 @@ import html2text from '../../utils/html2text';
 
 interface IFlylangInput {
   version: 1;
-  source: string; // base64
+  source: string;
 }
 
 const BASEURL = "https://play-f5w-01.flyos.top/api/play/";
@@ -11,7 +11,7 @@ const BASEURL = "https://play-f5w-01.flyos.top/api/play/";
 export async function evalCode(code: string): Promise<string>  {
   const req: IFlylangInput = {
     version: 1,
-    source: btoa(code)
+    source: code
   };
 
   const resp = await axios.post<string>(BASEURL, req, {
@@ -21,7 +21,7 @@ export async function evalCode(code: string): Promise<string>  {
   });
 
   try {
-    let resl = atob(resp.data);
+    let resl = resp.data;
     return resl;
   } catch(e) {
     console.log(e)
