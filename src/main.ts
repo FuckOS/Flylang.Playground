@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App';
+import store from './store';
 import './assets/styles/index.css';
 
 (globalThis as any)['MonacoEnvironment'] = {
@@ -11,4 +12,4 @@ import './assets/styles/index.css';
   }
 }
 
-createApp(App).mount('#app')
+createApp(App).use(store).mount('#app')

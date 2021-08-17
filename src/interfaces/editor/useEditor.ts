@@ -25,6 +25,9 @@ export function useEditor(
         automaticLayout: true,
         glyphMargin: true,
         cursorStyle: undefined,
+        cursorBlinking: "solid",
+        selectionHighlight: false,
+        wordWrap: "on"
       });
       r([editor, output])
     });

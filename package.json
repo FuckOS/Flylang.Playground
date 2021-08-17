@@ -11,7 +11,8 @@
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
     "monaco-editor": "^0.26.1",
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",

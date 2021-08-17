@@ -5,12 +5,15 @@ import { useEditor } from "../interfaces/editor/useEditor";
 import { useEditorInit } from "../interfaces/editor/useEditorInit";
 import { useEditorReload } from "../interfaces/editor/useEditorReload";
 import { useSyntax } from "../interfaces/syntax/useSyntax";
+import { useStore } from "vuex";
+import { IPlaygroundState } from "../store";
 
 export default defineComponent({
   name: "Editor",
   setup() {
     const editorNode = ref<HTMLElement>();
     const outputEditorNode = ref<HTMLElement>();
+    const store = useStore<IPlaygroundState>();
 
     useSyntax();
     useEditor(editorNode, outputEditorNode)
@@ -19,7 +22,7 @@ export default defineComponent({
         await useEditorInit(editor, output);
         console.log(editor, output)
         const fly50w = await import("../interfaces/vm/fly50w")
-        useEditorReload(editor, output, fly50w.evalCode, 1000);
+        useEditorReload(editor, output, fly50w.evalCode, store.getters);
       });
     
     return () => <>
