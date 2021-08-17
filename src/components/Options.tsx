@@ -1,7 +1,6 @@
 import { defineComponent, ref } from "vue";
-import { useStore } from "vuex";
-import "../assets/styles/options.css";
 import OptionsMenu from "./OptionsMenu";
+import "../assets/styles/options.css";
 
 export default defineComponent({
   name: "Options",

@@ -1,4 +1,5 @@
 import { ref, defineComponent } from "vue";
+import { IPlaygroundState } from "../store";
 import "../assets/styles/editor.css";
 
 import { useEditor } from "../interfaces/editor/useEditor";
@@ -6,7 +7,6 @@ import { useEditorInit } from "../interfaces/editor/useEditorInit";
 import { useEditorReload } from "../interfaces/editor/useEditorReload";
 import { useSyntax } from "../interfaces/syntax/useSyntax";
 import { useStore } from "vuex";
-import { IPlaygroundState } from "../store";
 
 export default defineComponent({
   name: "Editor",

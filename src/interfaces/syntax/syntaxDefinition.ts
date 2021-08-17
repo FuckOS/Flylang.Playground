@@ -1,4 +1,4 @@
-import * as monaco from 'monaco-editor';
+import type * as monaco from 'monaco-editor';
 
 // Create your own language definition here
 // You can safely look at other samples without losing modifications.
