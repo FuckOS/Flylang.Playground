@@ -16,7 +16,7 @@ export default defineConfig({
   plugins: [jsx(), vue(), replace({
     delimiters: ['', ''],
     values: {
-      '$__COMMIT_ID__': ci_event?.head_commit?.id?.slice(0,6) ?? "unknown",
+      '$__COMMIT_ID__': ci_event?.head_commit?.id?.slice(0,7) ?? "unknown",
       '$__COMMIT_URL__': ci_event?.head_commit?.url ?? "about:blank"
     }
   })],
