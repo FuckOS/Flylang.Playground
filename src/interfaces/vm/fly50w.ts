@@ -21,7 +21,7 @@ export async function evalCode(code: string): Promise<string>  {
   });
 
   try {
-    let resl = resp.data;
+    let resl = String(resp.data);
     return resl;
   } catch(e) {
     console.log(e)

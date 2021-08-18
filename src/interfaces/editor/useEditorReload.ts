@@ -16,7 +16,7 @@ export function useEditorReload(
       const code_out = await vm(editor.getValue());
       output.setValue(code_out);
     } catch (e: any) {
-      console.log(e);
+      console.error(e);
       output.setValue("Error!\n\n"+e.toString());
     }
   };
@@ -25,7 +25,7 @@ export function useEditorReload(
   watch(computed(() => getters.debounceTime), (v: number) => {
     if (getters.autoReload) {
       handle?.dispose?.();
-      handle = editor.onKeyUp(_.debounce(reload, v))
+      handle = editor.onKeyUp(_.debounce(reload, v));
     }
   });
 
