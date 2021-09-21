@@ -8,7 +8,7 @@
     "build:editor": "rollup -c rollup.editor.js"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "lodash": "^4.17.21",
     "monaco-editor": "^0.26.1",
     "vue": "^3.0.5",
