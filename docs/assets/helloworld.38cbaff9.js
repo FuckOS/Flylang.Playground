@@ -1,0 +1,1 @@
+var n='!import playground/println.f5w\n!import playground/help.f5w\n\nshowHelpText();\n\nprintln("\\r\\n");\n\nprintln("You can use print(\\"xxx\\"); to output strings.");\nprintln("When \\"playground/println.f5w\\" is imported, then you can use println.");\n';export{n as default};
